@@ -1,0 +1,29 @@
+extends extends/template
+
+block main
+  header
+    nav.nav
+      p.nav__title NotePad
+      
+      ul.nav__list
+        li.list__item: a(href='/notes?token=' + token class='item__link') Notes
+        li.list__item: a(href='/notes/create?token=' + token class='item__link') Create A Note
+        li.list__item: a(class='button--logout item__link') Logout
+
+  main
+    form.form--createnote
+      h1 Create Your Note!
+
+      .error-message
+      
+      .form__group
+        label.group__label(for="title") Title:
+        input.group__input(id="title" type="text" placeholder='Your title' name="name")
+      
+      .form__group
+        label.group__label(for="note") Note:
+        textarea(id="note" placeholder='Your note' rows="4" cols="50" name="text")
+      
+      button(type="submit") Create Note
+
+  include extends/footer

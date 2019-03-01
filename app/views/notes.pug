@@ -1,0 +1,28 @@
+extends extends/template
+
+block main
+  header
+    nav.nav
+      p.nav__title NotePad
+
+      ul.nav__list
+        li.list__item: a(href='/notes?token=' + token class='item__link') Notes
+        li.list__item: a(href='/notes/create?token=' + token class='item__link') Create A Note
+        li.list__item: a(class='button--logout item__link') Logout
+
+  main
+    .error-message
+    
+    h1 Welcome, Here are your notes
+
+    .notesContainer
+      each note in notes
+        .note
+          h1=note.name
+          p=note.text
+          a(href='/notes/delete/' + note._id + '?token=' + token) Delete Note
+          a(href='/notes/update/' + note._id + '?token=' + token) Update Note
+      else
+        p There are no notes :(
+
+  include extends/footer

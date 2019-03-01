@@ -1,0 +1,28 @@
+extends extends/template
+
+block main
+  header
+    nav.nav
+      p NotePad
+
+      ul 
+        li: a(href='/notes?token=' + token) Notes
+        li: a(class='button--logout') Logout
+  
+  main
+    .error-message
+    
+    form.form--updateNote
+      h1 Update You're Note!
+      
+      .form__group
+        label.group__label(for='title') Title: 
+        input.group__input(id='title' type='text' placeholder='Your title' name='name' value=note.name)
+      
+      .form__group
+        label.group__label(for='note') Note:
+        textarea(id='note' placeholder='Your note' name='text' rows="4" cols="50") #{note.text}
+      
+      button Update Note
+
+  include extends/footer

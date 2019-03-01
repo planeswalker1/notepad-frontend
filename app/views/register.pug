@@ -1,0 +1,31 @@
+extends extends/template
+
+block main
+  //- .modal
+  //-   .modal__content
+  //-     h1 It worked
+  header
+    nav.nav
+      p.nav__title NotePad
+
+      ul.nav__list
+        li.list__item: a(href='/' class='item__link') Home
+        li.list__item: a(href='/login' class='item__link') Login
+
+  main
+    form.form--register
+      h1 Register
+
+      .error-message
+      
+      .form__group
+        label.group__label(for="email") Email:
+        input.group__input(id="email" type="email" name="email")
+      
+      .form__group
+        label.group__label(for="password") Password:
+        input.group__input(id="password" type="password" name="password")
+      
+      button(type="submit") Register
+
+  include extends/footer

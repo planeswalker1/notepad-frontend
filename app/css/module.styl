@@ -1,0 +1,160 @@
+indexBackground = #f44336
+
+buttonBackground = #000
+buttonBackground--hover = #000
+buttonBorder = 3px solid #000
+buttonBorder--hover = 3px solid #000
+buttonColor = #000
+buttonColor--hover = #fff
+
+linkColor = #000
+linkColor--active = #fff
+linkColor--hover = #fff
+
+// ============
+// modal styles
+// ============
+
+.modal
+  background-color #000
+  background-color rgba(0, 0, 0, .5)
+  display none
+  height 100%
+  overflow auto
+  position fixed
+  left 0
+  top 0
+  width 100%
+  z-index 100
+
+.modal__content
+  background-color white
+  border 1px solid #888
+  border-radius 5px
+  max-width 90%
+  margin 10% auto
+  padding 2rem
+  text-align center
+
+// ======================
+// form styles
+// ======================
+
+.error-message
+  color #f44336
+  font-weight bold
+  margin 1rem 0
+  visibility hidden
+
+
+// ===========
+// note styles
+// ===========
+
+.note
+  border 2px solid #000
+  padding 10px
+
+// =============
+// button styles 
+// =============
+
+// button
+.list__item,
+.button--register
+  background-image linear-gradient(to top, buttonBackground 50%, transparent 50%)
+  background-size 200% 200%
+  border buttonBorder
+  color buttonColor
+
+
+  -webkit-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  -moz-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  -ms-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  -o-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  transition background-position 300ms, color 300ms ease, border-color 300ms ease
+
+// button:hover
+.list__item:hover,
+.button--register:hover
+  background-image linear-gradient(to top, buttonBackground--hover 51%, transparent 50%)
+  background-position 0 100%
+  border buttonBorder--hover
+  color buttonColor--hover
+
+  -webkit-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  -moz-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  -ms-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  -o-transition background-position 300ms, color 300ms ease, border-color 300ms ease
+  transition background-position 300ms, color 300ms ease, border-color 300ms ease
+
+// button:hover > link
+.list__item:hover > .item__link,
+.button--register:hover > .button--register__link
+  color linkColor--hover
+
+  -webkit-transition all 100ms linear
+  -moz-transition all 100ms linear
+  -ms-transition all 100ms linear
+  -o-transition all 100ms linear
+  transition all 100ms linear
+
+// link
+.item__link,
+.button--register__link
+  color linkColor
+  padding 5px
+  text-decoration none
+
+  -webkit-transition all 100ms linear
+  -moz-transition all 100ms linear
+  -ms-transition all 100ms linear
+  -o-transition all 100ms linear
+  transition all 100ms linear
+
+// link--active
+.item__link:active,
+.button--register__link:active
+  color linkColor--active
+
+// ==========
+// nav styles
+// ==========
+
+.nav
+  display flex
+  justify-content space-between
+  padding 20px
+
+.nav__title
+
+.nav__list
+  display flex
+  align-items center
+  justify-content flex-end
+
+  list-style-type none
+  padding 0
+
+.list__item 
+  margin-right 10px
+
+// ===========
+// main styles 
+// ===========
+.index
+  background-color indexBackground
+  height 300px
+  padding 20px
+
+// =============
+// footer styles
+// =============
+.copy
+  margin-right 30px
+  text-align  right
+
+@media only screen and (min-width: 960px)
+  .list__item,
+  .button--register
+    padding 5px

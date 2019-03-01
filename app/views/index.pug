@@ -1,0 +1,17 @@
+extends extends/template
+
+block main
+  header
+    nav.nav
+      p.nav__title NotePad
+
+      ul.nav__list
+        li.list__item: a(href='/login' class='item__link') Login
+        li.list__item: a(href='/register' class='item__link') Register
+
+  main.index
+    h1 Need a place to store your notes?
+
+    h2 #[span(class='button--register'): a(href='/register' class='button--register__link') Register] and get a personal notepad.
+
+  include extends/footer
