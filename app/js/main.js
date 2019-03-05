@@ -5,7 +5,7 @@ var createNoteForm = document.querySelector('.form--createnote');
 var modal = document.querySelector('.modal--delete');
 var inputs = Array.from(document.querySelectorAll('input'));
 var textarea = document.querySelector('textarea');
-var logoutButton = document.querySelector('.button--logout');
+var logoutButton = document.querySelector('.btn--logout');
 var updateNoteForm = document.querySelector('.form--updateNote');
 var deleteNoteForm = document.querySelector('.form--deleteNote');
 

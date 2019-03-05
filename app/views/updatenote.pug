@@ -5,9 +5,9 @@ block main
     nav.nav
       p NotePad
 
-      ul 
-        li: a(href='/notes?token=' + token) Notes
-        li: a(class='button--logout') Logout
+      ul(class="nav__list") 
+        li(class="list__item"): a(href='/notes?token=' + token): a(class="item__link") Notes
+        li(class="list__item"): a(class='btn--logout item__link') Logout
   
   main
     .error-message
@@ -23,6 +23,6 @@ block main
         label.group__label(for='note') Note:
         textarea(id='note' placeholder='Your note' name='text' rows="4" cols="50") #{note.text}
       
-      button Update Note
+      button(type="submit" class="btn btn--blue") Update Note
 
   include extends/footer

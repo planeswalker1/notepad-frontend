@@ -8,7 +8,7 @@ block main
       ul.nav__list
         li.list__item: a(href='/notes?token=' + token class='item__link') Notes
         li.list__item: a(href='/notes/create?token=' + token class='item__link') Create A Note
-        li.list__item: a(class='button--logout item__link') Logout
+        li.list__item: a(class='btn--logout item__link') Logout
 
   main
     .error-message
@@ -20,8 +20,8 @@ block main
         .note
           h1=note.name
           p=note.text
-          a(href='/notes/delete/' + note._id + '?token=' + token) Delete Note
-          a(href='/notes/update/' + note._id + '?token=' + token) Update Note
+          a(href='/notes/delete/' + note._id + '?token=' + token class="btn btn--red") Delete Note
+          a(href='/notes/update/' + note._id + '?token=' + token class="btn btn--yellow margin--left") Update Note
       else
         p There are no notes :(
 

@@ -8,7 +8,7 @@ block main
       ul.nav__list
         li.list__item: a(href='/notes?token=' + token class='item__link') Notes
         li.list__item: a(href='/notes/create?token=' + token class='item__link') Create A Note
-        li.list__item: a(class='button--logout item__link') Logout
+        li.list__item: a(class='btn--logout item__link') Logout
 
   main
     form.form--createnote
@@ -24,6 +24,6 @@ block main
         label.group__label(for="note") Note:
         textarea(id="note" placeholder='Your note' rows="4" cols="50" name="text")
       
-      button(type="submit") Create Note
+      button(type="submit" class="btn btn--blue") Create Note
 
   include extends/footer

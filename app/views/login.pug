@@ -7,7 +7,7 @@ block main
       
       ul.nav__list
         li.list__item: a(href='/' class='item__link') Home
-        li.list__item: a(href='/register' class='item__link') Sign Up
+        li.list__item: a(href='/register' class='item__link') Register
 
   main
     form.form--login
@@ -23,6 +23,6 @@ block main
         label.group__label(for="password") Password:
         input.group__input(id="password" type="password" name="password")
       
-      button(type="submit") Login
+      button(type="submit" class="btn btn--blue") Login
 
   include extends/footer
