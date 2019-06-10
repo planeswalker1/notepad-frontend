@@ -16,7 +16,7 @@ block main
 
       .note
         h1= note.name
-        p= note.text
+        p.note__text--show-whitespace= note.text
 
       button(type='submit' class="btn btn--blue") Delete Note
       button(class="btn btn--red margin--left"): a(href='/notes?token=' + token) Go Back
