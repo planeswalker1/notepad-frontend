@@ -19,7 +19,7 @@ block main
       each note in notes
         .note
           h1=note.name
-          p=note.text
+          p.note__text--show-whitespace=note.text
           a(href='/notes/delete/' + note._id + '?token=' + token class="btn btn--red") Delete Note
           a(href='/notes/update/' + note._id + '?token=' + token class="btn btn--yellow margin--left") Update Note
       else
