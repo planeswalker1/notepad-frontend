@@ -1,4 +1,4 @@
-console.log('main.min.js ran');
+// console.log('main.min.js ran');
 var registerForm = document.querySelector('.form--register');
 var loginForm = document.querySelector('.form--login');
 var createNoteForm = document.querySelector('.form--createnote');
@@ -9,14 +9,14 @@ var logoutButton = document.querySelector('.btn--logout');
 var updateNoteForm = document.querySelector('.form--updateNote');
 var deleteNoteForm = document.querySelector('.form--deleteNote');
 
-console.log('registerForm', registerForm);
-console.log('loginForm', loginForm);
-console.log('createNoteForm', createNoteForm);
-console.log('inputs', inputs);
-console.log('textarea', textarea);
-console.log('logout button', logoutButton);
-console.log('updateNoteForm', updateNoteForm);
-console.log('modal', modal);
+// console.log('registerForm', registerForm);
+// console.log('loginForm', loginForm);
+// console.log('createNoteForm', createNoteForm);
+// console.log('inputs', inputs);
+// console.log('textarea', textarea);
+// console.log('logout button', logoutButton);
+// console.log('updateNoteForm', updateNoteForm);
+// console.log('modal', modal);
 
 // close modal if clicked outside
 if (modal) {
@@ -73,7 +73,7 @@ if (deleteNoteForm) {
 function processRegister (event) {
   event.preventDefault();
 
-  console.log('validating inputs');
+  // console.log('validating inputs');
   var errorMessage = '';
   if (!validateEmail(registerForm.email)) {
     error(registerForm.email);
@@ -88,17 +88,17 @@ function processRegister (event) {
     }
   }
 
-  console.log('errorMessage', errorMessage);
+  // console.log('errorMessage', errorMessage);
   if (errorMessage) {
     return displayError(errorMessage);
   }
 
-  console.log('sending request');
+  // console.log('sending request');
   var userData = {
     email: registerForm.email.value,
     password: registerForm.password.value
   };
-  console.log('userData', userData);
+  // console.log('userData', userData);
 
   // request
   // what do i want to do
@@ -123,7 +123,7 @@ function processRegister (event) {
 function processLogin (event) {
   event.preventDefault();
 
-  console.log('validating inputs');
+  // console.log('validating inputs');
   var errorMessage = '';
   if (!loginForm.email.value) {
     error(loginForm.email);
@@ -138,17 +138,17 @@ function processLogin (event) {
     }
   }
 
-  console.log('errorMessage', errorMessage);
+  // console.log('errorMessage', errorMessage);
   if (errorMessage) {
     return displayError(errorMessage);
   }
 
-  console.log('sending request');
+  // console.log('sending request');
   var userLoginData = {
     email: loginForm.email.value,
     password: loginForm.password.value
   };
-  console.log('userLoginData', userLoginData);
+  // console.log('userLoginData', userLoginData);
 
   // request
   // what do i want to do
@@ -169,7 +169,7 @@ function processLogin (event) {
       return submitError(res);
     } else {
       return res.json().then(function (result) {
-        console.log('fetch POST /login worked, heres the result', result);
+        // console.log('fetch POST /login worked, heres the result', result);
         localStorage.token = result.token;
         window.location = '/notes?token=' + result.token;
       });
@@ -180,7 +180,7 @@ function processLogin (event) {
 
 // logout a user
 function processLogout () {
-  console.log('processLogout ran!');
+  // console.log('processLogout ran!');
   fetch('/logout', {
     headers: {
       'Content-Type': 'application/json',
@@ -192,9 +192,9 @@ function processLogout () {
     if (!res.ok) {
       return submitError(res);
     } else {
-      console.log('server hit for logout', res);
+      // console.log('server hit for logout', res);
       return res.text().then(function (result) {
-        console.log('fetch PUT /logout worked, heres the result', result);
+        // console.log('fetch PUT /logout worked, heres the result', result);
         localStorage.token = '';
         window.location = '/';
       });
@@ -206,7 +206,7 @@ function processLogout () {
 // create a note
 function processNewNote (event) {
   event.preventDefault();
-  console.log('validating inputs');
+  // console.log('validating inputs');
   var errorMessage = '';
   if (!createNoteForm.name.value) {
     error(createNoteForm.name);
@@ -225,12 +225,12 @@ function processNewNote (event) {
     return displayError(errorMessage);
   }
 
-  console.log('sending request');
+  // console.log('sending request');
   var noteData = {
     name: createNoteForm.name.value,
     text: createNoteForm.text.value
   }
-  console.log('noteData', noteData);
+  // console.log('noteData', noteData);
   // request
   // what do i want to do
   // make a request to back-end server with note information to save a note to the users note db
@@ -248,7 +248,7 @@ function processNewNote (event) {
     if (!res.ok) {
       return submitError(res);
     } else {
-      console.log('fetch post /notes worked, here is the res', res);
+      // console.log('fetch post /notes worked, here is the res', res);
       window.location = '/notes?token=' + localStorage.token        
     }
   }).catch(submitError);
@@ -257,13 +257,13 @@ function processNewNote (event) {
 // update a note
 function processNoteUpdate (event) {
   event.preventDefault();
-  console.log('processUpdate ran');
-  console.log(updateNoteForm.name);
-  console.log(updateNoteForm.name.value);
-  console.log(!updateNoteForm.name.value);
-  console.log(updateNoteForm.text);
-  console.log(updateNoteForm.text.value);
-  console.log(!updateNoteForm.text.value);
+  // console.log('processUpdate ran');
+  // console.log(updateNoteForm.name);
+  // console.log(updateNoteForm.name.value);
+  // console.log(!updateNoteForm.name.value);
+  // console.log(updateNoteForm.text);
+  // console.log(updateNoteForm.text.value);
+  // console.log(!updateNoteForm.text.value);
   // validate inputs
   var errorMessage = '';
   if (!updateNoteForm.name.value) {
@@ -286,10 +286,10 @@ function processNoteUpdate (event) {
     name: updateNoteForm.name.value,
     text: updateNoteForm.text.value
   };
-  console.log('accessing url');
+  // console.log('accessing url');
   var pathName = window.location.pathname;
   var id = pathName.substring(pathName.lastIndexOf('/') + 1);
-  console.log('expected id', id);
+  // console.log('expected id', id);
   // request - what do i want to do
   // request to back end with updated form data
   // hopefully recieve an ok and return back to users notes
@@ -303,12 +303,12 @@ function processNoteUpdate (event) {
     body: JSON.stringify(noteData)
   })
   .then(function (res) {
-    console.log('back end responded');
+    // console.log('back end responded');
     if (!res.ok) {
-      console.log('there was error');
+      // console.log('there was error');
       return submitError(res);
     }
-    console.log('success, updated note, should redirect');
+    // console.log('success, updated note, should redirect');
     window.location = '/notes?token=' + localStorage.token;
   })
   .catch(submitError);
@@ -317,16 +317,16 @@ function processNoteUpdate (event) {
 // delete a note
 function processDeleteNote (event) {
   event.preventDefault();
-  console.log('requested to delete note');
+  // console.log('requested to delete note');
   // request what do i want to do
   // send request to server to delete note from user
   // recieve ok and return to users notes
   // if error display error
-  console.log('accessing url');
+  // console.log('accessing url');
   var pathName = window.location.pathname;
-  console.log('pathName', pathName);
+  // console.log('pathName', pathName);
   var id = pathName.substring(pathName.lastIndexOf('/') + 1);
-  console.log('expected id', id);
+  // console.log('expected id', id);
   fetch('/notes/' + id, {
     headers: {
       'x-access-token': localStorage.token
@@ -337,7 +337,7 @@ function processDeleteNote (event) {
     if (!res.ok) {
       return submitError(res);
     }
-    console.log('success, deleted note, should redirect');
+    // console.log('success, deleted note, should redirect');
     window.location = '/notes?token=' + localStorage.token;
   })
   .catch(submitError);
@@ -396,4 +396,4 @@ function submitError (res, message) {
   return displayError('There was a problem submitting your form. Please try again later.');
 }
 
-console.log('end main.min.js');
+// console.log('end main.min.js');

@@ -1,5 +1,5 @@
 {
-  "name": "note-pad-front-end",
+  "name": "notepad-frontend",
   "version": "1.0.0",
   "description": "Notepad app to store your notes",
   "main": "app.js",
